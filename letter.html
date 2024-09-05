@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise Letter</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom right, #ffecd2, #fcb69f);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+        }
+
+        .envelope {
+            width: 1000px;
+            height: 600px;
+            background: #fff;
+            border: 2px solid #f77f77;
+            position: relative;
+            overflow: hidden;
+            margin: 20px auto;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            animation: bounceIn 1s ease-out forwards;
+        }
+
+        .flap {
+            width: 100%;
+            height: 150px;
+            background: #f77f77;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform-origin: top;
+            transform: rotateX(0deg);
+            transition: transform 0.8s ease-in-out;
+            border-radius: 15px 15px 0 0;
+            box-shadow: inset 0 -10px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .letter {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 25px;
+            box-sizing: border-box;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out 0.8s;
+        }
+
+        #message {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #333;
+            text-align: left;
+        }
+
+        button {
+            padding: 12px 25px;
+            background-color: #f77f77;
+            border: none;
+            border-radius: 25px;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 40px;
+            outline: none;
+            animation: fadeIn 2s ease-in forwards;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            background-color: #f45e5e;
+        }
+
+        .hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .heart {
+            width: 20px;
+            height: 20px;
+            background: red;
+            position: absolute;
+            transform: rotate(-45deg);
+            animation: animateHeart 5s linear infinite;
+        }
+
+        .heart:before,
+        .heart:after {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background: red;
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .heart:before {
+            top: -10px;
+            left: 0;
+        }
+
+        .heart:after {
+            left: 10px;
+            top: 0;
+        }
+
+        @keyframes animateHeart {
+            0% {
+                transform: translateY(0) rotate(-45deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-700px) rotate(-45deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            80% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .opened .flap {
+            transform: rotateX(180deg);
+        }
+
+        .opened .letter {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hearts">
+            <div class="heart" style="left: 20%; animation-delay: 0s;"></div>
+            <div class="heart" style="left: 40%; animation-delay: 1s;"></div>
+            <div class="heart" style="left: 60%; animation-delay: 2s;"></div>
+            <div class="heart" style="left: 80%; animation-delay: 3s;"></div>
+        </div>
+        <div class="envelope" id="envelope">
+            <div class="flap"></div>
+            <div class="letter">
+                <pre id="message" class="hidden">
+    Happiest birthday my besttttestttttt friend my param mitr my cutipie my gndi
+    bigdi hui bachii i am very thankfull bhgvan ko mrko aap jesa dost milaaaa 
+    thankuuuuuhhhveryyy veryy much.
+    Mrko pta aap bhott iritate hote mughse fr bhi bin shikyat aap mre sath hain to
+    aapko thankyuuh.
+    and sunoo aap naa bhoot khass ho mre lieee to kbhii naa gussa naa hona
+    and aaap bhoooot ache hoo gussa hojate ho naa do mera dil baith jata h
+    to pleasee gussa na kra kroo 
+    andd sunooo thannkyuuuh to hai hi sath me sorry bhii kyukii hu to chuha hii
+    hrkte to krta rhta huu 
+    too i am sory andd mai roj pray krta ki tum mrko mil gye to thannnkyyuuh godd anddd
+    uncle aunty ko bhi thankkyuh tum jesa product bnaya 🥹😂
+    maai tumkoo sbsee jyda thankyuuh khta kyukii maii sbse jydaa comfortable tumhare
+    sath feel krta huu isliee thankuuuhhh🍫
+    -Thankweeeeeeww booot jydaa mre sath rhne ke lieeeeeee orr ye mne khud likhaa 
+    schiiiii 
+    Thankyouuu my cute mohtarmaaa🤌
+          --your gussa dilane vala chuha and apki namkeen khane vala bhi🥹👉👈. 
+
+                    
+                </pre>
+            </div>
+        </div>
+        <button onclick="openLetter()">Open the Letter</button>
+    </div>
+
+    <script>
+        function openLetter() {
+            document.getElementById('envelope').classList.add('opened');
+        }
+
+        // Generate random hearts
+        const heartContainer = document.querySelector('.hearts');
+        for (let i = 0; i < 10; i++) {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.style.left = `${Math.random() * 100}%`;
+            heart.style.animationDelay = `${Math.random() * 5}s`;
+            heartContainer.appendChild(heart);
+        }
+    </script>
+</body>
+</html>
